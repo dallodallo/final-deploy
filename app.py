@@ -22,14 +22,14 @@ model = joblib.load("modell")
 #  -*- coding: utf-8 -*-
 # print(model)
 
-tim = ["Lunch", "Breakfast", "Supper"]
+tim = ["Lunch", "Breakfast", "Supper"] 
 dt = datetime.datetime.now()
 dt = dt.strftime("%B %d,%Y" "|" "%H:%M:%S")
 # print(dt)
 
 df = pd.read_csv("test.csv")
 # external_stylesheets=[dbc.themes.BOOTSTRAP],
-app = dash.Dash(__name__, title='Possibility Dash Apps Analytics')
+app = dash.Dash(__name__, suppress_callback_exeception=True, meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1.0'}] title='Possibility Dash Apps Analytics')
 
 server = app.server
 
@@ -1519,4 +1519,4 @@ def update_graphs(rows, derived_virtual_selected_rows):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
